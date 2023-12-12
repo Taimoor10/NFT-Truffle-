@@ -1,0 +1,37 @@
+{
+  "name": "NFT(Truffle-Typescript)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "generate-types": "typechain --target=truffle-v5 './build/contracts/*.json'",
+    "generate-types-client": "./node_modules/.bin/typechain --target=web3-v1 './build/contracts/*.json'",
+    "postinstall": "truffle compile && yarn generate-types && yarn generate-types-client",
+    "coverage": "truffle run coverage",
+    "test": "truffle test",
+    "lint": "eslint . --ext .ts",
+    "migrate": "tsc -p ./tsconfig.migrate.json --outDir migrations && truffle migrate"
+  },
+  "dependencies": {
+    "eslint": "^8.40.0"
+  },
+  "devDependencies": {
+    "@typechain/truffle-v5": "^8.0.2",
+    "@typechain/web3-v1": "^6.0.2",
+    "@types/bn.js": "^5.1.1",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/web3": "^1.2.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "coveralls": "^3.1.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eth-gas-reporter": "^0.2.25",
+    "solidity-coverage": "^0.8.2",
+    "truffle": "^5.9.0",
+    "truffle-typings": "^1.0.8",
+    "typechain": "^8.1.1",
+    "typescript": "^5.0.4"
+  }
+}
